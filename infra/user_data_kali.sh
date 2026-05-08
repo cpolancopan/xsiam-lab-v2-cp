@@ -44,12 +44,6 @@ systemctl start docker
 # Build mythic-cli
 make
 
-# Start Mythic
-./mythic-cli start
-
-# Save status
-./mythic-cli status || true
-
 ./mythic-cli install github https://github.com/MythicAgents/Apollo.git
 ./mythic-cli install github https://github.com/MythicAgents/Medusa.git
 ./mythic-cli install github https://github.com/MythicAgents/Xenon.git
@@ -58,6 +52,12 @@ make
 ./mythic-cli install github https://github.com/MythicC2Profiles/dns
 ./mythic-cli install github https://github.com/MythicC2Profiles/dynamichttp
 ./mythic-cli install github https://github.com/MythicC2Profiles/smb
+
+# Start Mythic
+./mythic-cli start
+
+# Save status
+./mythic-cli status || true
 
 # Get Password
 sudo ./mythic-cli config get MYTHIC_ADMIN_PASSWORD
