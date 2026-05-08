@@ -1,7 +1,7 @@
 ## VMs
 
 output "ssh_file_entries" {
-  value = join("\n\n", [
+  value = nonsensitive(join("\n\n", [
     for name, inst in aws_instance.jumpbox : <<-EOT
       Host ${name}
         HostName ${aws_eip.jumpbox[name].public_ip}
@@ -9,7 +9,7 @@ output "ssh_file_entries" {
         IdentityFile ~/Documents/${var.ssh_key_name}.pem
         IdentitiesOnly yes
     EOT
-  ])
+  ]))
   description = "modify vim ~/.ssh/config"
 }
 
